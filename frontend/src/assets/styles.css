@@ -1,0 +1,140 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
+.title {
+    text-align: center;
+    color: #4a90e2;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.add-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #357ab8;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 300px; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+}
+
+
+.card {
+    background-color: #1e293b;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    position: relative;
+    color: #f8fafc;
+}
+
+.card .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-description {
+    flex: 1;
+}
+
+.task-finished {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.checkbox {
+    margin-right: 20px;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.footer {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #b0b0b0;
+}
+
+.date-added {
+    margin-top: 5px;
+}
+
+.containercheck {
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+    margin-right: 10px;
+}
+  
+  .containercheck input {
+    display: none;
+  }
+  
+  .containercheck svg {
+    overflow: visible;
+    transition: transform 0.3s;
+  }
+  
+  .path {
+    fill: none;
+    stroke: white;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+    stroke-dasharray: 241 9999999;
+    stroke-dashoffset: 0;
+  }
+  
+  .containercheck input:checked ~ svg .path {
+    stroke-dasharray: 70.5096664428711 9999999;
+    stroke-dashoffset: -262.2723388671875;
+  }
+
+  .containercheck input:checked ~ svg {
+    transform: scale(0.8);
+  }

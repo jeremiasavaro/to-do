@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import './assets/styles.css';
 
 const App = () => {
   const [description, setDescription] = useState('');
@@ -79,31 +80,44 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>To-Do List</h1>
-      <form onSubmit={handleAddWork}>
+    <div class="container">
+      <h1 class="title">To-Do List</h1>
+      <form class="form" onSubmit={handleAddWork}>
         <input
           type="text"
+          class="input"
+          placeholder="Add a new task"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="New Task"
         />
-        <button type="submit">Add task</button>
+        <button type="submit" class="add-button">Add</button>
       </form>
-      <ul>
+      <div class="task-list">
         {tasks.map(task => (
-          <li key={task.description} style={{ textDecoration: task.finished === 0 ? 'line-through' : 'none' }}>
-            {task.description} - <em>{new Date(task.dateAdded).toLocaleDateString()}</em>
-            <input
-              type="checkbox"
-              checked={task.finished === 0} 
-              onChange={() => handleCompleteTask(task.description)} 
-            />
-            <button onClick={() => handleDeleteTask(task.description)}>Delete task</button>
-          </li>
+        <div class="card" key={task.description}>
+          <div class="header">
+              <p className={`task-description ${task.finished === 0 ? 'task-finished' : ''}`}>
+                {task.description}
+              </p>
+              <label className="containercheck">
+                <input
+                  type="checkbox"
+                  checked={task.finished === 0}
+                  onChange={() => handleCompleteTask(task.description)}
+                  style={{ display: 'none' }}
+                />
+                <svg viewBox="0 0 64 64" height="1em" width="1em" className={`checkbox-svg ${task.finished === 0 ? 'checked' : ''}`}>
+                  <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" className="path"></path>
+                </svg>
+              </label>
+              <button class="delete-button" onClick={() => handleDeleteTask(task.description)}>Delete</button>
+          </div>
+          <div class="footer">
+              <p class="date-added">Added on: {task.dateAdded}</p>
+          </div>
+       </div>
         ))}
-      </ul>
-      {message && <p>{message}</p>}
+      </div>
     </div>
   );
 };
