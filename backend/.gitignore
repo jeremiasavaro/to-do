@@ -1,0 +1,44 @@
+# Bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# SQLite (si usas SQLite para la base de datos)
+*.sqlite3
+*.db
+
+# Configuration files
+*.env
+
+# Flask specific
+instance/
+*.pid
+*.log
+
+# Python Egg
+*.egg
+*.egg-info/
+dist/
+build/
